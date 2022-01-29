@@ -43,7 +43,8 @@ class SimpleMLP(nn.Module, BaseModel):
 
         layers = nn.Sequential(
             *(
-                nn.Linear(input_size, hidden_size),
+                #nn.Linear(input_size, hidden_size),
+                nn.Linear(3072, hidden_size),
                 nn.ReLU(inplace=True),
                 nn.Dropout(p=drop_rate),
             )
