@@ -63,11 +63,9 @@ class SimpleMLP(nn.Module, BaseModel):
         self.features = nn.Sequential(*layers)
         self.classifier = nn.Linear(hidden_size, num_classes)
         self._input_size = input_size
-        print("self.features",self.features)
-        print("self.classifier",self.classifier)
 
     def forward(self, x):
-        print("x.shape:", x.shape)
+        #print("x.shape:", x.shape)
         x = x.contiguous()
         #x = x.view(x.size(0), self._input_size)
         x = x.view(x.size(0), -1)
