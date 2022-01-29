@@ -75,7 +75,8 @@ class SimpleMLP(nn.Module, BaseModel):
 
     def get_features(self, x):
         x = x.contiguous()
-        x = x.view(x.size(0), self._input_size)
+        #x = x.view(x.size(0), self._input_size)
+        x = x.view(x.size(0), -1)
         x = self.features(x)
         return x
 
