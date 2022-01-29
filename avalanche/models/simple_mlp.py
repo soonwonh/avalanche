@@ -68,15 +68,15 @@ class SimpleMLP(nn.Module, BaseModel):
     def forward(self, x):
         print("x.shape:", x.shape)
         x = x.contiguous()
-        x = x.view(x.size(0), self._input_size)
+        #x = x.view(x.size(0), self._input_size)
+        x = x.view(x.size(0), -1)
         x = self.features(x)
         x = self.classifier(x)
         return x
 
     def get_features(self, x):
         x = x.contiguous()
-        #x = x.view(x.size(0), self._input_size)
-        x = x.view(x.size(0), -1)
+        x = x.view(x.size(0), self._input_size)
         x = self.features(x)
         return x
 
